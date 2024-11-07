@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="signup-container">
+    <h2>Sign Up</h2>
+    <form method="post" action="{% url 'signup' %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn">Register</button>
+    </form>
+</div>
+
+<!-- Display success/error messages in a modal -->
+{% if messages %}
+<div id="popup-message" class="popup">
+    <div class="popup-content">
+        {% for message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %}
+        <button onclick="closePopup()">OK</button>
+    </div>
+</div>
+{% endif %}
+
+<script>
+    function closePopup() {
+        document.getElementById('popup-message').style.display = 'none';
+    }
+
+    window.onload = function() {
+        var popup = document.getElementById('popup-message');
+        if (popup) {
+            popup.style.display = 'block';
+        }
+    }
+</script>
+{% endblock %}

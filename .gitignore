@@ -1,0 +1,72 @@
+# Django-related files
+*.pyc
+__pycache__/
+db.sqlite3
+
+# Environment variables
+.env
+.env.*
+
+# Virtual environment folder
+venv/
+
+# Other
+*.log
+settings_local.py  # if you create a local settings file (optional)
+
+# System files
+.DS_Store
+
+# Database backups
+db_backup.json
+db_backup.sqlite3
+
+# Node.js dependencies
+node_modules/
+
+# Static and media files
+staticfiles/
+media/
+
+# Credentials and sensitive files
+credentials.json
+generate_token.py
+
+# Django-related files
+*.pyc
+__pycache__/
+db.sqlite3
+
+# Environment variables
+.env
+.env.*
+
+# Virtual environment folder
+venv/
+
+# Other
+*.log
+settings_local.py  # if you create a local settings file (optional)
+
+# System files
+.DS_Store
+
+# Database backups
+db_backup.json
+db_backup.sqlite3
+
+# Node.js dependencies
+node_modules/
+
+# Static and media files
+staticfiles/
+media/
+
+# Credentials and sensitive files
+credentials.json
+generate_token.py
+
+# Compiled JavaScript packages
+package-lock.json
+package.json
+

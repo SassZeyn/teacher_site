@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'/>
+    <title>Lesson Availability - Calendar View</title>
+
+    <!-- FullCalendar CSS -->
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/6.1.15/index.global.min.css' rel='stylesheet'/>
+
+    <!-- FullCalendar JS -->
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
+
+    <!-- Custom CSS for Event Styling and Layout -->
+    <style>
+        body {
+            background-color: #f8f8f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            min-height: 100vh;
+            padding: 10px;
+            font-family: Arial, sans-serif;
+        }
+
+        #calendar {
+            width: 100%;
+            max-width: 900px;
+            background-color: white;
+            padding: 10px;
+            border-radius: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .fc-event {
+            background-color: #6c63ff !important;
+            color: white !important;
+            border-radius: 8px !important;
+            padding: 2px;
+            border: none;
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .fc-event:hover {
+            background-color: #5a52db !important;
+            cursor: pointer;
+            transition: background-color 0.1s;
+        }
+
+        .selected-event {
+            background-color: green !important;
+            color: white !important;
+        }
+
+        #selected-slots {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        #proceed-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #proceed-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<div id="calendar"></div>
+
+<!-- Selected Slots Display -->
+<div id="selected-slots">
+    <h3>Selected Slots:</h3>
+</div>
+
+<!-- Proceed to Payment Button -->
+<button id="proceed-button">Proceed to Payment</button>
+
+<!-- FullCalendar Initialization Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var selectedSlots = [];
+
+        // Initialize FullCalendar
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            events: {{ events|safe }},
+            eventDisplay: 'block',
+            displayEventTime: false,
+            validRange: {
+                start: new Date().toISOString().split('T')[0]  // Start calendar from today
+            },
+            eventContent: function(arg) {
+                const startTime = new Date(arg.event.start).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                const endTime = new Date(arg.event.end).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                const teacherName = arg.event.extendedProps.teacherName;
+
+                if (arg.event.extendedProps.booked) {
+                    return { html: `<span class="fc-event-title">Booked</span>` };
+                }
+                return { html: `<span class="fc-event-title">${teacherName} - ${startTime} - ${endTime}</span>` };
+            },
+            eventMouseEnter: function(info) {
+                const startTime = new Date(info.event.start).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                const endTime = new Date(info.event.end).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                info.el.setAttribute("title", `${startTime} - ${endTime}`);
+            },
+            eventClick: function(info) {
+                if (info.event.extendedProps.booked) {
+                    alert("This slot is already booked.");
+                    return;
+                }
+
+                const lessonId = info.event.extendedProps.lessonId;
+                const slot = {
+                    start: info.event.start.toISOString(),
+                    end: info.event.end.toISOString(),
+                    lessonId: lessonId,
+                };
+
+                // Toggle selection
+                const existingIndex = selectedSlots.findIndex(s => s.start === slot.start && s.end === slot.end);
+                if (existingIndex > -1) {
+                    selectedSlots.splice(existingIndex, 1);  // Deselect if already selected
+                    info.el.classList.remove('selected-event');
+                } else {
+                    selectedSlots.push(slot);  // Add if not selected
+                    info.el.classList.add('selected-event');
+                }
+
+                updateSelectedSlotsDisplay();
+            }
+        });
+
+        calendar.render();
+
+        function updateSelectedSlotsDisplay() {
+            const selectedSlotsDiv = document.getElementById('selected-slots');
+            selectedSlotsDiv.innerHTML = '<h3>Selected Slots:</h3>';  // Reset content
+
+            selectedSlots.forEach(slot => {
+                const start = new Date(slot.start).toLocaleString([], { dateStyle: 'short', timeStyle: 'short' });
+                const end = new Date(slot.end).toLocaleString([], { timeStyle: 'short' });
+                selectedSlotsDiv.innerHTML += `<p>${start} - ${end}</p>`;
+            });
+        }
+
+        // Handle "Proceed to Payment" button click
+        document.getElementById('proceed-button').addEventListener('click', function() {
+            if (selectedSlots.length === 0) {
+                alert('Please select at least one time slot.');
+                return;
+            }
+
+            const selectedSlotsParam = encodeURIComponent(JSON.stringify(selectedSlots));
+            const paymentUrl = `/payment/?selected_slots=${selectedSlotsParam}`;
+            window.location.href = paymentUrl;
+        });
+    });
+</script>
+
+</body>
+</html>
+

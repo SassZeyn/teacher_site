@@ -1,0 +1,1345 @@
+
+
+/* General Styling for the navbar */
+/* General Styling for the navbar */
+.navbar {
+    background-color: transparent;
+    padding: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Space items apart */
+}
+
+/* Adjust container to center the content */
+.navbar .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+
+
+.navbar.scrolled {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+
+
+
+
+/* Navbar menu styling */
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 25px; /* Add gap between items */
+    align-items: center;
+}
+
+
+
+/* Navbar links */
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: rgba(50, 50, 50, 0.5);
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.navbar ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+    color: black;
+}
+
+/* Mobile-specific styling for the hamburger and menu */
+/* Mobile-specific styling for the hamburger and menu */
+/* Mobile-specific styling for the hamburger and menu */
+@media (max-width: 1300px) {
+    #nav-menu {
+        display: none;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.3); /* Adjust transparency if needed */
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        width: 300px;
+        border-radius: 10px;
+        padding: 20px;
+    }
+
+    /* Show menu when the .active class is added */
+    #nav-menu.active {
+        display: flex;
+    }
+
+    /* Hamburger icon styling */
+    .menu-toggle {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+        cursor: pointer;
+    }
+
+    .menu-toggle span {
+        display: block;
+        width: 35px;
+        height: 5px;
+        background-color: black; /* Adjust color as needed */
+    }
+}
+
+
+/* Main Title Styling */
+.logo .main-title {
+    font-size: 2rem; /* Adjust the font size as needed */
+    font-weight: bold;
+    color: black; /* Primary color */
+    margin: 0; /* Remove default margin */
+}
+
+/* Sub Title Styling */
+.logo .sub-title {
+    font-size: 1.2rem; /* Smaller than the main title */
+    font-weight: normal; /* Different weight if needed */
+    color: #555; /* Lighter color for distinction */
+    margin-top: 5px; /* Adjust spacing between main and sub-title */
+    letter-spacing: 0.05em; /* Adjust letter spacing if needed */
+}
+
+
+
+
+
+
+body {
+    margin: 10;
+    padding: 10;
+    background-color: #f8f8f8;
+    font-family: 'Arial', sans-serif;
+    color: black;
+}
+
+
+/* Hero Section */
+.hero {
+    background-color: white;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    flex-direction: column; /* Allow stacking */
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    text-align: center;
+    max-height: 350px; /* Adjust this value as needed */
+    padding: 70px;
+
+}
+
+.hero .overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-text {
+    position: absolute; /* Use absolute positioning */
+    top: 50%; /* Center vertically */
+    left: 52%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for the element's own width/height */
+    z-index: 2;
+    color: white;
+    text-align: center;
+    font-size: 4rem;
+    text-transform: lowercase;
+    letter-spacing: 3rem;
+}
+
+
+.cta-button {
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.5rem;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    position: absolute; /* Use absolute positioning */
+    top: 100%; /* Adjust this value to move it down as needed */
+    left: 47.5%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for the button's own dimensions */
+    letter-spacing: 0.1rem;
+}
+
+/* Button Hover Effect */
+.cta-button:hover {
+    background-color: #6c63ff;
+    color: white;
+}
+
+/* Section Headers */
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #333; /* Darker text */
+}
+
+
+/* About Section */
+/* About Section */
+.about-section {
+    padding: 60px 20px;
+    background-color: #f8f8f8;
+    display: flex;
+    justify-content: center;
+}
+
+.about-section h2,
+.about-section h3,
+.about-section p {
+    text-align: left;
+}
+
+.about-section .card-box {
+    text-align: left; /* This aligns the text inside the card to the left */
+}
+
+.about-container {
+    display: flex;
+    max-width: 900px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.about-photo img {
+    width: 200px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 20px;
+}
+
+.about-info {
+    padding: 20px;
+    text-align: left;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.about-info h2 {
+    margin: 0;
+    font-size: 1.8em;
+    color: #2c3e50;
+}
+
+.about-info h3 {
+    margin-top: 5px;
+    font-size: 1.2em;
+    color: #7f8c8d;
+}
+
+.about-info p {
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
+.cta-about-section-button {
+    margin-top: 10px;
+    background-color: white;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for color and background */
+    font-size: 1em;
+}
+
+.cta-about-section-button:hover {
+    background-color: #7f73ff;
+    color: white; /* Change text color to white on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .about-photo img {
+        width: 150px;
+        margin: 20px 0;
+    }
+}
+
+
+
+/* Lesson Categories Section */
+.categories-section {
+    background-color: #ffffff; /* Set background to white */
+    padding: 50px 20px;
+}
+
+.categories-grid {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Ensure items stay on one line unless screen size is small */
+    gap: 20px; /* Add spacing between items */
+}
+
+/* Material Categories Section */
+.material-categories {
+    background-color: #f8f8f8;
+    margin-bottom: 0px;
+    padding-bottom: 20px;
+}
+
+/* Remove gray bar */
+.material-categories,
+.categories-section {
+    border: none; /* Remove any border that creates a bar effect */
+}
+
+/* Grid for About, Lesson, and Material Categories */
+.grid-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* Lesson Category Box */
+.lesson-category-box {
+    width: 200px; /* Set your desired width */
+    height: 200px; /* Set the same value for height */
+    aspect-ratio: 1 / 1; /* Ensures the box is square */
+    background-color: white;
+    border: 1px solid #e0e0e0; /* Light gray border */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 20px;
+    cursor: pointer; /* Add pointer cursor to indicate that the whole box is clickable */
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Inherit text color for the entire box */
+    overflow: hidden;
+}
+
+.lesson-category-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.lesson-category-box h3 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #333; /* Darker text */
+}
+
+.lesson-category-box p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #555; /* Slightly lighter text for distinction */
+}
+
+/* Material Category Box */
+.material-category-box {
+    width: 200px; /* Set your desired width */
+    height: 200px; /* Set the same value for height */
+    aspect-ratio: 1 / 1; /* Ensures the box is square */
+    background-color: white;
+    border: 1px solid #e0e0e0; /* Light gray border */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 20px;
+    cursor: pointer; /* Add pointer cursor to indicate that the whole box is clickable */
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Inherit text color for the entire box */
+}
+
+.material-category-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.material-category-box h3 {
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #333; /* Darker text */
+}
+
+.material-category-box p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #777; /* Slightly lighter text for distinction */
+}
+
+
+/* General Styling for the navbar */
+.navbar {
+    background-color: transparent; /* Initially fully transparent */
+    padding: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* Scrolled Navbar Background */
+.navbar.scrolled {
+    background-color: rgba(0, 0, 0, 0.7); /* Apply background when scrolled */
+}
+
+/* Navbar Links */
+.navbar ul li a {
+    color: white; /* Keep the text white */
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: rgba(50, 50, 50, 0.5); /* Transparent dark grey */
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Hero Section */
+.hero {
+    background-color: white;
+    background-size: cover;
+    position: relative;
+    display: block;
+    background-position: center;
+    height: 100vh;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Must Watch Section */
+/* Must Watch Section */
+/* Must Watch Section Styling */
+/* Must Watch Section Styling */
+/* Must Watch Section */
+.must-watch {
+    background-color: none;
+    padding: 50px 20px;
+    text-align: center;
+    color: white;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.must-watch .section-title {
+    font-size: 2.5rem;
+    color: black;
+    margin-bottom: 20px;
+    letter-spacing: 0.1em;
+}
+
+.youtube-channel-button {
+    display: inline-block;
+    background-color: #6c63ff; /* Use the color from the Book Lessons button */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    margin-bottom: 30px;
+    transition: background-color 0.3s;
+}
+
+.youtube-channel-button:hover {
+    background-color: #555;
+}
+
+/* Adjust Swiper Navigation Buttons */
+.swiper-container {
+    max-width: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    color: white;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    z-index: 10;
+}
+
+.swiper-button-next {
+    right: 10px;
+}
+
+.swiper-button-prev {
+    left: 10px;
+}
+
+/* Swiper Pagination */
+.swiper-pagination {
+    bottom: 15px;
+    z-index: 5;
+}
+
+/* Swiper Slide Styling */
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.video-card {
+    background-color: white;
+    border: 1px solid #333;
+    border-radius: 8px;
+    width: 250px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.video-card img {
+    width: 100%;
+    height: 150px;
+    border-radius: 8px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.video-card h3 {
+    font-size: 1.2rem;
+    color: black;
+    margin: 10px 0;
+}
+
+.video-card p {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.video-button {
+    background-color: #6c63ff;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    margin-top: auto;
+}
+
+.video-button:hover {
+    background-color: #555;
+}
+
+.video-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+}
+
+
+
+
+
+/* Contact Section */
+.contact-section {
+    background-color: #f8f8f8;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.contact-section form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-section input,
+.contact-section textarea {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    color: #333;
+}
+
+.contact-section button {
+    background-color: #333;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    margin: 25px;
+}
+
+.contact-section button:hover {
+    background-color: #000;
+}
+
+
+
+
+
+/* available lessons style inside */
+
+/* General Lessons Section Style */
+.lessons-section {
+    background-color: #f8f8f8; /* Light background */
+    padding: 50px 20px; /* Add padding */
+    text-align: center; /* Center text */
+}
+
+.lessons-grid {
+    display: flex; /* Use flexbox for layout */
+    flex-wrap: wrap; /* Allow items to wrap */
+    justify-content: center; /* Center items */
+    gap: 20px; /* Space between items */
+}
+
+.lesson-box {
+    display: flex;                     /* Use flexbox to align items */
+    flex-direction: column;            /* Stack items vertically */
+    justify-content: center;           /* Center items vertically */
+    align-items: center;               /* Center items horizontally */
+    border: 1px solid #ccc;           /* Add a border for visibility */
+    border-radius: 8px;               /* Rounded corners */
+    padding: 20px;                    /* Add some padding */
+    margin: 10px;                     /* Space between boxes */
+    background-color: white;          /* Background color */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    text-align: center;                /* Center text alignment */
+}
+
+
+.lesson-box:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+.lesson-box h3 {
+    font-size: 1.5rem; /* Adjust heading size */
+    margin: 0 0 10px 0; /* Remove top margin, add bottom margin */
+    color: #333; /* Dark color for headings */
+}
+
+.lesson-box p {
+    margin: 5px 0; /* Margin for paragraph elements */
+}
+
+.lesson-button {
+    background-color: #6c63ff; /* Button background */
+    color: white; /* Button text color */
+    border: none; /* No border */
+    padding: 10px 20px; /* Button padding */
+    border-radius: 5px; /* Rounded button corners */
+    text-decoration: none; /* No underline */
+    transition: background-color 0.3s; /* Button hover effect */
+    display: inline-block; /* Keep button as a block element */
+    margin-top: 15px; /* Margin above the button */
+}
+
+.lesson-button:hover {
+    background-color: #555; /* Darker on hover */
+}
+
+/* Typography */
+h2 {
+    font-size: 2.5rem; /* Consistent heading size */
+    margin-bottom: 20px; /* Spacing below heading */
+    color: #333; /* Dark color for headings */
+}
+
+
+/* Category Lessons Section Style */
+/* Category Lessons Section Style inside */
+.categories-section {
+    background-color: #f8f8f8; /* Light background */
+    padding: 50px 20px; /* Add padding */
+    text-align: center; /* Center text */
+}
+
+.categories-grid {
+    display: flex; /* Use flexbox for layout */
+    flex-wrap: wrap; /* Allow items to wrap */
+    justify-content: center; /* Center items */
+    gap: 20px; /* Space between items */
+}
+
+.category-box {
+    display: flex;                     /* Use flexbox to align items */
+    flex-direction: column;            /* Stack items vertically */
+    justify-content: center;           /* Center items vertically */
+    align-items: center;               /* Center items horizontally */
+    border: 1px solid #ccc;           /* Add a border for visibility */
+    border-radius: 8px;               /* Rounded corners */
+    padding: 20px;                    /* Add some padding */
+    margin: 10px;                     /* Space between boxes */
+    background-color: white;          /* Background color */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    text-align: center;                /* Center text alignment */
+}
+
+.category-box:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+.category-box h3 {
+    font-size: 1.5rem; /* Adjust heading size */
+    margin: 0 0 10px 0; /* Remove top margin, add bottom margin */
+    color: #333; /* Dark color for headings */
+}
+
+.category-button {
+    background-color: #6c63ff; /* Button background */
+    color: white; /* Button text color */
+    border: none; /* No border */
+    padding: 10px 20px; /* Button padding */
+    border-radius: 5px; /* Rounded button corners */
+    text-decoration: none; /* No underline */
+    transition: background-color 0.3s; /* Button hover effect */
+    display: inline-block; /* Keep button as a block element */
+    margin-top: 15px; /* Margin above the button */
+}
+
+.category-button:hover {
+    background-color: #555; /* Darker on hover */
+}
+
+/* Typography */
+h2 {
+    font-size: 2.5rem; /* Consistent heading size */
+    margin-bottom: 20px; /* Spacing below heading */
+    color: #333; /* Dark color for headings */
+}
+
+/* materials inside*/
+/* Materials Section Style */
+/* Materials Section Style */
+.materials-section {
+    background-color: #f8f8f8; /* Light background */
+    padding: 50px 20px; /* Add padding */
+    text-align: center; /* Center text */
+}
+
+.materials-grid {
+    display: flex; /* Use flexbox for layout */
+    flex-wrap: wrap; /* Allow items to wrap */
+    justify-content: center; /* Center items */
+    gap: 20px; /* Space between items */
+}
+
+.material-box {
+    display: flex;                     /* Use flexbox to align items */
+    flex-direction: column;            /* Stack items vertically */
+    justify-content: center;           /* Center items vertically */
+    align-items: center;               /* Center items horizontally */
+    border: 1px solid #ccc;           /* Add a border for visibility */
+    border-radius: 8px;               /* Rounded corners */
+    padding: 20px;                    /* Add some padding */
+    margin: 10px;                     /* Space between boxes */
+    background-color: white;          /* Background color */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    text-align: center;                /* Center text alignment */
+    width: 200px;                      /* Set a fixed width for uniformity */
+    height: 150px;                     /* Set a fixed height for uniformity */
+}
+
+.material-box:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+}
+
+.material-box h3 {
+    font-size: 1.5rem; /* Adjust heading size */
+    margin: 0 0 10px 0; /* Remove top margin, add bottom margin */
+    color: #333; /* Dark color for headings */
+}
+
+.material-button {
+    background-color: #6c63ff; /* Button background */
+    color: white; /* Button text color */
+    border: none; /* No border */
+    padding: 10px 20px; /* Button padding */
+    border-radius: 5px; /* Rounded button corners */
+    text-decoration: none; /* No underline */
+    transition: background-color 0.3s; /* Button hover effect */
+    display: inline-block; /* Keep button as a block element */
+    margin-top: 15px; /* Margin above the button */
+}
+
+.material-button:hover {
+    background-color: #555; /* Darker on hover */
+}
+
+/* Typography */
+h2 {
+    font-size: 2.5rem; /* Consistent heading size */
+    margin-bottom: 20px; /* Spacing below heading */
+    color: #333; /* Dark color for headings */
+}
+
+/* login style*/
+/* Login Section Style */
+.login-section {
+    background-color: #f8f8f8; /* Light background */
+    padding: 50px 20px; /* Add padding */
+    text-align: center; /* Center text */
+}
+
+.login-title {
+    font-size: 2.5rem; /* Consistent heading size */
+    margin-bottom: 20px; /* Spacing below heading */
+    color: #333; /* Dark color for headings */
+}
+
+.login-form {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    gap: 15px; /* Space between inputs */
+}
+
+.login-input {
+    width: 300px; /* Fixed width for inputs */
+    padding: 10px; /* Padding for inputs */
+    border: 1px solid #ccc; /* Border for inputs */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1rem; /* Font size */
+}
+
+.login-button {
+    background-color: #6c63ff; /* Button background */
+    color: white; /* Button text color */
+    border: none; /* No border */
+    padding: 10px 20px; /* Button padding */
+    border-radius: 5px; /* Rounded button corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Button hover effect */
+}
+
+.login-button:hover {
+    background-color: #555; /* Darker on hover */
+}
+
+.signup-link {
+    margin-top: 20px; /* Margin above the link */
+    font-size: 0.9rem; /* Font size for the link */
+    color: #6c63ff; /* Link color */
+    text-decoration: none; /* No underline */
+}
+
+.signup-link:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* signup style*/
+/* Sign Up Section Style */
+/* Signup Section Styles */
+.signup-section {
+    background-color: #f8f8f8; /* Light background */
+    padding: 50px 20px; /* Add padding */
+    text-align: center; /* Center text */
+}
+
+.signup-title {
+    font-size: 2.5rem; /* Consistent heading size */
+    margin-bottom: 20px; /* Spacing below heading */
+    color: #333; /* Dark color for headings */
+}
+
+.signup-form {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    gap: 15px; /* Space between inputs */
+}
+
+.signup-input {
+    width: 300px; /* Fixed width for inputs */
+    padding: 10px; /* Padding for inputs */
+    border: 1px solid #ccc; /* Border for inputs */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 1rem; /* Font size */
+}
+
+.signup-button {
+    background-color: #6c63ff; /* Button background */
+    color: white; /* Button text color */
+    border: none; /* No border */
+    padding: 10px 20px; /* Button padding */
+    border-radius: 5px; /* Rounded button corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s; /* Button hover effect */
+}
+
+.signup-button:hover {
+    background-color: #555; /* Darker on hover */
+}
+
+.signup-conditions {
+    font-size: 0.9rem; /* Font size for conditions */
+    color: #666; /* Grey color for text */
+    text-align: left; /* Align text to the left */
+    margin-top: 10px; /* Margin above conditions */
+}
+
+.login-link {
+    margin-top: 20px; /* Margin above the link */
+    font-size: 0.9rem; /* Font size for the link */
+    color: #6c63ff; /* Link color */
+    text-decoration: none; /* No underline */
+}
+
+.login-link:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Error Styles */
+.error {
+    color: red; /* Red color for error messages */
+    font-size: 0.9rem; /* Adjust font size */
+    margin-top: 5px; /* Space between input and error */
+    text-align: center; /* Center-align the error list */
+}
+
+.error-list {
+    color: red; /* Red color for error messages */
+    font-size: 0.9rem; /* Adjust font size */
+    text-align: left; /* Align text to the left */
+    margin-top: 20px; /* Space above error list */
+    list-style-type: none; /* Remove bullet points */
+    padding: 0; /* Remove padding */
+    text-align: center; /* Center-align the error list */
+}
+
+
+/* logout style */
+/* Logout Button Style */
+.logout-button {
+    background-color: rgba(50, 50, 50, 0.5); /* Same background as other buttons */
+    color: white; /* Text color */
+    padding: 10px 20px; /* Padding */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* No underline */
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out; /* Hover effect */
+    cursor: pointer; /* Pointer cursor */
+}
+
+.logout-button:hover {
+    background-color: rgba(255, 255, 255, 0.9); /* Darker on hover */
+    color: black; /* Text color on hover */
+}
+
+
+/* signup mobile style*/
+@media (max-width: 600px) {
+    .signup-input {
+        width: 100%;
+    }
+}
+
+/* Add this to your CSS file */
+.message-success {
+    color: #fff;  /* White text */
+    background-color: #28a745;  /* Bright green background */
+    border: 2px solid #218838;  /* Darker green border */
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Slight shadow for a 3D effect */
+}
+
+
+/* articles style */
+/* General Styling for Articles Page */
+/* Container to limit the width of articles page content */
+/* Main container for articles */
+.articles-container {
+    display: flex;
+    padding: 40px 20px;
+    max-width: 1500px;
+    margin: 0 auto; /* Centers the content */
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    box-sizing: border-box;
+    overflow: hidden; /* Prevents overflow issues */
+}
+
+/* Sidebar Styling */
+.articles-sidebar {
+    width: 25%; /* Adjust width for modern look */
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 80px; /* Keeps sidebar fixed as you scroll */
+}
+
+.articles-sidebar h2 {
+    font-size: 1.8rem;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.articles-sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.articles-sidebar ul li {
+    margin: 10px 0;
+}
+
+.articles-sidebar ul li a {
+    color: #6c63ff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    display: block;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.articles-sidebar ul li a:hover {
+    background-color: #6c63ff;
+    color: white;
+}
+
+/* Main Content Styling */
+.articles-content {
+    width: 75%; /* Adjust width to align with sidebar */
+    padding-left: 20px;
+    box-sizing: border-box;
+}
+
+/* Individual Article Sections */
+.articles-content section {
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.articles-content h3 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.articles-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #555;
+    margin: 10px 0;
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+    .articles-container {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .articles-sidebar {
+        width: 100%;
+        margin-bottom: 20px;
+        position: static; /* Sidebar won't be sticky on mobile */
+    }
+
+    .articles-content {
+        width: 100%;
+        padding-left: 0;
+    }
+}
+
+/* Back-to-Top Button Styling */
+/* Style the Back-to-Top button to appear inline after each article */
+.back-to-top-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.back-to-top-final {
+    background-color: #6c63ff;
+    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.back-to-top-final:hover {
+    background-color: #333;
+    transform: translateY(-2px);
+}
+
+/* Article Card Styling */
+.article-card {
+    max-width: 800px; /* Set max-width for the article container */
+    margin: 20px auto; /* Center-align and space out articles */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for modern look */
+    text-align: center;
+}
+
+/* Article Image Styling */
+.article-image {
+    width: 100%;
+    overflow: hidden; /* Hide overflow for consistent shape */
+    border-radius: 8px; /* Rounded corners for a modern look */
+}
+
+.article-image img {
+    width: 100%; /* Full width for responsiveness */
+    height: auto; /* Maintains aspect ratio */
+    aspect-ratio: 16 / 9; /* Enforces rectangular shape (16:9 ratio) */
+    object-fit: cover; /* Ensures image covers container without distortion */
+    border-radius: 8px; /* Matches container radius */
+    transition: transform 0.3s ease; /* Smooth zoom-in effect */
+}
+
+/* Optional Hover Effect */
+.article-image img:hover {
+    transform: scale(1.05); /* Slight zoom-in on hover for interactivity */
+}
+
+
+/* overall layout sections adjustment */
+/* Example CSS adjustments */
+.about-section,
+.must-watch,
+.categories-section {
+    padding-top: 40px; /* Reduce top padding */
+    padding-bottom: 30px; /* Reduce bottom padding */
+    margin-top: 20px; /* Reduce or remove top margin */
+    margin-bottom: 20px; /* Reduce or remove bottom margin */
+}
+
+h2, h3 {
+    margin-top: 10px; /* Reduce top margin for headings */
+    margin-bottom: 30px; /* Reduce bottom margin for headings */
+}
+section {
+    padding: 20px 0; /* Apply consistent padding for all sections */
+}
+.must-watch {
+    padding: 20px 0; /* Reduced padding for this section only */
+}
+
+
+/* Footer Styling */
+/* Ensure html and body take up full height */
+html, body {
+    height: 100%;
+    margin: 5;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main wrapper for page content */
+main {
+    flex: 1; /* Allows main content to expand and push footer down if necessary */
+}
+
+/* Footer Styling */
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0 40px;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+
+.footer-logo {
+    text-align: left;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.footer-logo p {
+    color: #aaa;
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+.footer-links {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    margin: 5px 0;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 5px;
+    display: flex;
+    gap: 20px;
+}
+
+.footer-links ul li a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+    color: #6c63ff;
+}
+
+.footer-social {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: -5px;
+}
+
+.footer-social h3 {
+    font-size: 1rem;
+    color: #aaa;
+    margin-bottom: 5px;
+}
+
+.footer-social ul.social-icons {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+}
+
+.footer-social ul.social-icons li {
+    display: inline-block;
+}
+
+.footer-social ul.social-icons li a {
+    color: white;
+    font-size: 1.5em;
+    transition: color 0.3s ease;
+}
+
+.footer-social ul.social-icons li a:hover {
+    color: #6c63ff;
+}
+
+.footer-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid #444;
+    padding-top: 10px;
+    font-size: 0.8rem;
+    color: #aaa;
+    text-align: center;
+    margin-top: 10px;
+    line-height: 1.4;
+}
+
+.footer-bottom p {
+    margin: 5px 0;
+    line-height: 1.4;
+}
+
+.footer-bottom a {
+    color: #aaa;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-bottom a:hover {
+    color: #6c63ff;
+}
+
+/* Footer Credit Styling */
+.footer-credit {
+    color: #aaa;
+    font-size: 0.8rem;
+    margin-top: 5px;
+    text-align: center;
+}
+

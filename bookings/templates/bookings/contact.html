@@ -1,0 +1,48 @@
+{% extends 'bookings/base.html' %}
+
+{% block title %}
+Contact Us
+{% endblock %}
+
+{% block content %}
+<section class="contact-section">
+    <div class="section-box">
+        <h1>Contact Us</h1>
+
+        <form method="post" action="{% url 'contact' %}">
+            {% csrf_token %}
+
+            <!-- Name Input -->
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" class="contact-input"
+                   value="{{ form.name.value|default_if_none:'' }}" required>
+            {% if form.name.errors %}
+                <div class="error">{{ form.name.errors|join:", " }}</div>
+            {% endif %}
+            <br>
+
+            <!-- Email Input -->
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" placeholder="Your Email" class="contact-input"
+                   value="{{ form.email.value|default_if_none:'' }}" required>
+            {% if form.email.errors %}
+                <div class="error">{{ form.email.errors|join:", " }}</div>
+            {% endif %}
+            <br>
+
+            <!-- Message Input -->
+            <label for="message">Your Message:</label>
+            <textarea id="message" name="message" placeholder="Your Message" class="contact-textarea" required>
+                {{ form.message.value|default_if_none:'' }}
+            </textarea>
+            {% if form.message.errors %}
+                <div class="error">{{ form.message.errors|join:", " }}</div>
+            {% endif %}
+            <br>
+
+            <!-- Submit Button -->
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+    </div>
+</section>
+{% endblock %}

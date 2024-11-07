@@ -1,0 +1,26 @@
+{% extends 'bookings/base.html' %}
+{% load static %}
+
+{% block title %}
+    English Lessons with {{ teacher.name|default:"our teacher" }}
+{% endblock %}
+
+{% block content %}
+<!-- Available Lessons Section -->
+<section class="lessons-section" id="available-lessons">
+    <h2>Available Lessons</h2>
+    <div class="lessons-grid">
+        {% for lesson in lessons %}
+        <div class="lesson-box">
+            <h3>{{ lesson.title }}</h3>
+            <p>{{ lesson.duration }} minutes - ${{ lesson.price }}</p>
+            <div class="description">{{ lesson.description|truncatewords:20 }}</div>
+            <!-- Updated link to lead to your custom calendar view -->
+            <a href="{% url 'booking_form' lesson.id %}" class="lesson-button">Book Now</a>
+        </div>
+        {% empty %}
+        <p>No lessons available at the moment.</p>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

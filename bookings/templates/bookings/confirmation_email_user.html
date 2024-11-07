@@ -1,0 +1,18 @@
+<html>
+<head>
+    <style>
+        /* Add any necessary styles for a professional email look */
+    </style>
+</head>
+<body>
+    <h1>Booking Confirmation</h1>
+    <p>Thank you for booking with us! Here are your booking details:</p>
+    <ul>
+        {% for slot in selected_slots %}
+            <li>{{ slot.start }} - {{ slot.end }}</li>
+        {% endfor %}
+    </ul>
+    <p><strong>Total Price:</strong> ${{ total_price }}</p>
+    <p>We look forward to seeing you!</p>
+</body>
+</html>

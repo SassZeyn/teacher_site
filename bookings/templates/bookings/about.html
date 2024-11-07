@@ -1,0 +1,89 @@
+{% extends 'bookings/base.html' %}
+{% load static %}
+
+{% block title %}
+About Alex
+{% endblock %}
+
+{% block content %}
+<section class="about-section">
+    <div class="about-card">
+        <div class="about-card-image">
+            <img src="{% static 'images/sasszeyn.jpeg' %}" alt="Alex's photo">
+        </div>
+        <div class="about-card-content">
+            <h2>Hi! I'm Sass Zeyn</h2>
+            <h3>English, Literature, & TOK Teacher</h3>
+            <p>With a Master’s degree in Education specializing in Teaching English as a Foreign Language (TEFL), I
+                bring over 7 years of experience as an International Baccalaureate (IB) certified teacher in English,
+                Literature, and Theory of Knowledge (TOK). My expertise extends to teaching TOEFL and IELTS, where I
+                have successfully guided numerous students to achieve their language proficiency goals.</p>
+            <p>As a skilled backend software developer, proficient in Python and Django, I bridge the gap between
+                education and technology. I am passionate about leveraging tech to drive educational innovations,
+                particularly through developing AI-driven solutions and custom applications that enhance learning
+                experiences and improve educational outcomes.</p>
+            <p>In addition to my teaching credentials, I am certified in public speaking, academic writing, and
+                leadership skills, enabling me to effectively communicate complex ideas and inspire both students and
+                colleagues alike. My passion for education is complemented by a keen interest in the integration of
+                technology within the learning environment. This has led to my involvement in implementing AI-driven
+                solutions to enhance educational outcomes.</p>
+        </div>
+    </div>
+</section>
+
+<style>
+    /* About Section Styling */
+    .about-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 50px 0;
+        background-color: #f0f2f5;
+    }
+
+    .about-card {
+        display: flex;
+        max-width: 800px;
+        background-color: #fff;
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }
+
+    .about-card-image img {
+        width: auto;
+        height: auto;
+        max-width: 300px;
+        max-height: 400px;
+        object-fit: cover;
+        border-radius: 15px 0 0 15px;
+    }
+
+    .about-card-content {
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: #333;
+    }
+
+    .about-card-content h2 {
+        text-align: left;
+        margin: 0;
+        font-size: 1.8em;
+        color: #2c3e50;
+    }
+
+    .about-card-content h3 {
+        text-align: left;
+        margin: 5px 0 20px;
+        font-size: 1.2em;
+        color: #7f8c8d;
+    }
+
+    .about-card-content p {
+        margin-bottom: 20px;
+        line-height: 1.6;
+    }
+</style>
+{% endblock %}

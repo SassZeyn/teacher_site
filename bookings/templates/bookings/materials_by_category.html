@@ -1,0 +1,22 @@
+{% extends 'bookings/base.html' %}
+
+{% block title %}
+    Materials in {{ category.name }}
+{% endblock %}
+
+{% block content %}
+<section class="materials-section">
+    <h2>MATERIALS IN {{ category.name }}</h2>
+    <div class="materials-grid">
+        {% for material in materials %}
+        <div class="material-box">
+            <h3>{{ material.title }}</h3>
+            <p>{{ material.description }}</p>
+            <a href="{{ material.file_url }}" class="material-button">View</a>
+        </div>
+        {% empty %}
+        <p>No materials available in this category at the moment.</p>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

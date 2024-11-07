@@ -1,0 +1,24 @@
+{% extends 'bookings/base.html' %}
+
+{% block title %}
+    {{ category.name }} Lessons
+{% endblock %}
+
+{% block content %}
+<section class="lessons-section" id="category-lessons">
+    <h2>{{ category.name }} Lessons</h2>
+    <div class="lessons-grid">
+        {% for lesson in lessons %}
+        <div class="lesson-box">
+            <h3>{{ lesson.title }}</h3>
+            <p>{{ lesson.duration }} minutes - ${{ lesson.price }}</p>
+            <div class="description">{{ lesson.description|truncatewords:20 }}</div>
+            <a href="{% url 'booking_form' lesson.id %}" class="lesson-button">Book Now</a>
+        </div>
+        {% empty %}
+        <p>No lessons available in this category at the moment.</p>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
+

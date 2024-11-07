@@ -1,0 +1,17 @@
+<html>
+<head>
+    <style>
+        /* Add styles for admin notification */
+    </style>
+</head>
+<body>
+    <h1>New Booking Alert</h1>
+    <p>A new booking has been made by {{ user.get_full_name }} ({{ user.email }}).</p>
+    <ul>
+        {% for slot in selected_slots %}
+            <li>{{ slot.start }} - {{ slot.end }}</li>
+        {% endfor %}
+    </ul>
+    <p><strong>Total Price:</strong> ${{ total_price }}</p>
+</body>
+</html>

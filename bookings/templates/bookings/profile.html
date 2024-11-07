@@ -1,0 +1,36 @@
+{% extends 'bookings/base.html' %}
+
+{% block title %}
+{{ teacher.name }}'s Profile
+{% endblock %}
+
+{% block content %}
+<section class="profile-section">
+    <div class="profile-box">
+        <h1>{{ teacher.name }}</h1>
+        <p>{{ teacher.bio }}</p>
+
+        <!-- Profile Picture -->
+        <div class="profile-picture">
+            {% if teacher.profile_picture %}
+                <img src="{{ teacher.profile_picture.url }}" alt="{{ teacher.name }}">
+            {% else %}
+                <img src="/static/default_profile_picture.jpg" alt="{{ teacher.name }}">
+            {% endif %}
+        </div>
+
+        <!-- Available Lessons -->
+        <h2>Available Lessons</h2>
+        <ul class="lessons-list">
+            {% for lesson in lessons %}
+                <li>
+                    {{ lesson.title }} - {{ lesson.duration }} minutes - ${{ lesson.price }}
+                    <a href="{% url 'booking_form' lesson.id %}" class="lesson-book-button">Book</a>
+                </li>
+            {% empty %}
+                <li>No lessons available at the moment.</li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+{% endblock %}

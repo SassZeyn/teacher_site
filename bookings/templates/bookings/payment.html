@@ -1,0 +1,99 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment for Lesson</title>
+    <link rel="stylesheet" href="{% static 'css/payment.css' %}">
+    <style>
+        body {
+            background-color: #f8f8f8;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .lesson-details, .payment-methods {
+            background-color: white;
+            width: 80%;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .method {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #eaeaea;
+            cursor: pointer;
+        }
+
+        .method:hover {
+            background-color: #f0f0f0;
+        }
+
+        .method img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        .method:last-child {
+            border-bottom: none;
+        }
+
+        /* Styling for the no-refund policy */
+        .policy-notice {
+            text-align: center;
+            color: #d9534f; /* Red color for emphasis */
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="lesson-details">
+    <h2>Lesson Details</h2>
+    <p><strong>Title:</strong> {{ lesson.title }}</p>
+    <p><strong>Description:</strong> {{ lesson.description }}</p>
+    <p><strong>Duration:</strong> {{ lesson.duration }} minutes per slot</p>
+    <p><strong>Price per Slot:</strong> ${{ lesson.price }}</p>
+    <p><strong>Number of Slots Selected:</strong> {{ selected_slots|length }}</p>
+    <p><strong>Total Price:</strong> ${{ total_price }}</p>
+</div>
+
+<div class="payment-methods">
+    <h2>Select Payment Method</h2>
+    <div class="method" onclick="initiateMockPayment()">
+        <div>
+            <img src="{% static 'icons/mock-payment-icon.png' %}" alt="Mock Payment">
+            Mock Payment
+        </div>
+        <div>●</div>
+    </div>
+</div>
+
+<!-- No-Cancellation and No-Refund Policy Notice -->
+<div class="policy-notice">
+    <p>⚠️ Please Note: This purchase is subject to a No-Cancellation and No-Refund Policy. All sales are final.</p>
+</div>
+
+<script>
+    function initiateMockPayment() {
+        // Ensure selected_slots and total_price are passed as query parameters
+        const selectedSlots = {{ selected_slots|safe }};
+        const totalPrice = {{ total_price }};
+        const selectedSlotsParam = encodeURIComponent(JSON.stringify(selectedSlots));
+        const mockPaymentUrl = `{% url 'initiate_mock_payment' %}?selected_slots=${selectedSlotsParam}&total_price=${totalPrice}`;
+        window.location.href = mockPaymentUrl;
+    }
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,55 @@
+{% extends 'bookings/base.html' %}
+{% load static %}
+
+{% block title %}
+Articles
+{% endblock %}
+
+{% block content %}
+<div class="articles-container" id="top">
+    <div class="articles-sidebar">
+        <h2>Articles</h2>
+        <ul>
+            {% for article in articles %}
+            <li><a href="#article-{{ article.id }}">{{ article.title }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div class="articles-content">
+        {% for article in articles %}
+        <section id="article-{{ article.id }}" class="article">
+            <div class="article-card">
+                <div class="article-image">
+                    {% if article.image %}
+                    <img src="{{ article.image.url }}" alt="{{ article.title }}">
+                    {% else %}
+                    <img src="{% static 'images/default-article.png' %}" alt="Default Image">  <!-- Optional placeholder -->
+                    {% endif %}
+                </div>
+                <h3>{{ article.title }}</h3>
+
+                {% if article.introduction %}
+                <h4>---</h4>
+                <p>{{ article.introduction }}</p>
+                {% endif %}
+
+                {% if article.content %}
+                <h4>---</h4>
+                <p>{{ article.content }}</p>
+                {% endif %}
+
+                {% if article.conclusion %}
+                <h4>---</h4>
+                <p>{{ article.conclusion }}</p>
+                {% endif %}
+            </div>
+        </section>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Back to Top Button -->
+<div class="back-to-top-container">
+    <a href="#top" class="back-to-top-final">Back to Top</a>
+</div>
+{% endblock %}

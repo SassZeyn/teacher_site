@@ -5,12 +5,20 @@ import environ
 import smtplib
 import ssl
 
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+
+env = environ.Env()
+
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))# Define the BASE_DIR first
+
+# Create an instance of Env and read the .env fil
+
+
 context = ssl._create_unverified_context()
 server = smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context)
 
-env = environ.Env()
-# Explicitly specify the absolute path to the .env file
-environ.Env.read_env(os.path.join(os.path.dirname(__file__), '../.env'))
 
 # Debug print
 print("Loaded EMAIL_HOST_USER:", env("EMAIL_HOST_USER"))
@@ -37,23 +45,23 @@ AMERIA_ENDPOINT = 'https://payments.ameriabank.am/'  # Adjust based on their pro
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'  # Change if you're using another provider
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
+EMAIL_HOST = env('EMAIL_HOST', default='smtp.gmail.com')  # Change if you're using another provider
+EMAIL_PORT = env.int('EMAIL_PORT', default=587)
+EMAIL_USE_TLS = env.bool('EMAIL_USE_TLS', default=True)
 EMAIL_USE_SSL = False  # Ensure this is False
-EMAIL_HOST_USER = 'sasszeyn@gmail.com'
-EMAIL_HOST_PASSWORD = 'sqdkzessddidiacd'
-DEFAULT_FROM_EMAIL = 'sasszeyn@gmail.com'
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL = env('DEFAULT_FROM_EMAIL', default=EMAIL_HOST_USER)
 
 
-# Base directory path for the project
-BASE_DIR = Path(__file__).resolve().parent.parent
+# Base directory path for the projec
 
 # Security settings (keep the secret key safe)
-SECRET_KEY = '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'
+SECRET_KEY = env('SECRET_KEY')  # This retrieves the value from your .env file
 
 # Debugging (set to False in production)
-DEBUG = True
+DEBUG = env('False')
+
 
 # Login and Logout configurations
 LOGIN_URL = 'login'  # Route name for the login page
@@ -61,7 +69,7 @@ LOGOUT_REDIRECT_URL = 'homepage'  # Redirect to homepage after logout
 LOGIN_REDIRECT_URL = 'homepage'  # Redirect to homepage after login
 
 # Allowed hosts for the application
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
 
 # Static files configuration (CSS, JS, Images)
 STATIC_URL = '/static/'

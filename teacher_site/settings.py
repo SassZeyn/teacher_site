@@ -42,7 +42,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False  # Ensure this is False
 EMAIL_HOST_USER = 'sasszeyn@gmail.com'
-EMAIL_HOST_PASSWORD = 'sqdkzessddidiacd'
+EMAIL_HOST_PASSWORD = 'EMAIL_HOST_PASSWORD'
 DEFAULT_FROM_EMAIL = 'sasszeyn@gmail.com'
 
 
@@ -50,7 +50,7 @@ DEFAULT_FROM_EMAIL = 'sasszeyn@gmail.com'
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Security settings (keep the secret key safe)
-SECRET_KEY = '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'
+SECRET_KEY = 'SECRET_KEY'
 
 # Debugging (set to False in production)
 DEBUG = True

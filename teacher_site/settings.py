@@ -8,6 +8,8 @@ import ssl
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+SECURE_CROSS_ORIGIN_OPENER_POLICY = 'same-origin'
+
 
 env = environ.Env()
 

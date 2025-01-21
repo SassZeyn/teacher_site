@@ -5,12 +5,15 @@ import environ
 import smtplib
 import ssl
 
+BASE_DIR = Path(__file__).resolve().parent.parent
+
 context = ssl._create_unverified_context()
 server = smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context)
 
 env = environ.Env()
-# Explicitly specify the absolute path to the .env file
-environ.Env.read_env(os.path.join(os.path.dirname(__file__), '../.env'))
+
+# Use BASE_DIR to locate .env
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # Debug print
 print("Loaded EMAIL_HOST_USER:", env("EMAIL_HOST_USER"))
@@ -41,8 +44,9 @@ EMAIL_HOST = 'smtp.gmail.com'  # Change if you're using another provider
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False  # Ensure this is False
-EMAIL_HOST_USER = 'sasszeyn@gmail.com'
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = 'EMAIL_HOST_PASSWORD'
+EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = 'sasszeyn@gmail.com'
 
 
@@ -50,10 +54,12 @@ DEFAULT_FROM_EMAIL = 'sasszeyn@gmail.com'
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Security settings (keep the secret key safe)
-SECRET_KEY = 'SECRET_KEY'
+
+SECRET_KEY = env('SECRET_KEY')
 
 # Debugging (set to False in production)
-DEBUG = True
+DEBUG = env.bool('DEBUG', default=False)
+
 
 # Login and Logout configurations
 LOGIN_URL = 'login'  # Route name for the login page

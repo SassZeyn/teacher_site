@@ -44,6 +44,12 @@
             justify-content: space-between;
         }
 
+        .fc-event.booked {
+            background-color: #e0e0e0 !important;
+            color: #888 !important;
+            cursor: not-allowed;
+        }
+
         .fc-event:hover {
             background-color: #5a52db !important;
             cursor: pointer;
@@ -108,13 +114,17 @@
                 start: new Date().toISOString().split('T')[0]  // Start calendar from today
             },
             eventContent: function(arg) {
+                // Check if the slot is booked
+                if (arg.event.extendedProps.booked) {
+                    // Show "Booked" for booked slots
+                    return { html: `<span class="fc-event-title">Booked</span>` };
+                }
+
+                // Default display for available slots
                 const startTime = new Date(arg.event.start).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
                 const endTime = new Date(arg.event.end).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
                 const teacherName = arg.event.extendedProps.teacherName;
 
-                if (arg.event.extendedProps.booked) {
-                    return { html: `<span class="fc-event-title">Booked</span>` };
-                }
                 return { html: `<span class="fc-event-title">${teacherName} - ${startTime} - ${endTime}</span>` };
             },
             eventMouseEnter: function(info) {
@@ -178,4 +188,3 @@
 
 </body>
 </html>
-

@@ -324,11 +324,10 @@ def booking_form(request, lesson_id):
     lesson = get_object_or_404(Lesson, id=lesson_id)
     teacher = lesson.teacher
 
-    # Fetch available slots by checking that no Booking exists for the Availability instance
+    # Fetch all availability slots (both booked and unbooked)
     availability = Availability.objects.filter(
         teacher=teacher,
-        available_date__gte=timezone.now().date(),  # Only fetch future dates
-        booking__isnull=True  # Ensures that the slot has no associated booking
+        available_date__gte=timezone.now().date()  # Only fetch future dates
     )
 
     events = []
@@ -336,13 +335,17 @@ def booking_form(request, lesson_id):
         start_datetime = timezone.make_aware(datetime.combine(slot.available_date, slot.start_time))
         end_datetime = timezone.make_aware(datetime.combine(slot.available_date, slot.end_time))
 
+        # Check if the slot is booked (related Booking exists)
+        is_booked = hasattr(slot, 'booking') and slot.booking is not None
+
         events.append({
-            "title": f"{teacher.name}",
+            "title": "Booked" if is_booked else f"{teacher.name}",
             "start": start_datetime.isoformat(),
             "end": end_datetime.isoformat(),
             "lessonId": lesson.id,
             "extendedProps": {
-                "teacherName": teacher.name
+                "teacherName": teacher.name,
+                "booked": is_booked,  # Pass booked status to the frontend
             }
         })
 

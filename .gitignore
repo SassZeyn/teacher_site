@@ -1,5 +1,5 @@
 teacher_site/settings.py
-
+media/
 # Django-related files
 *.pyc
 __pycache__/

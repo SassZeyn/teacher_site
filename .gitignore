@@ -1,3 +1,5 @@
+teacher_site/settings.py
+
 # Django-related files
 *.pyc
 __pycache__/

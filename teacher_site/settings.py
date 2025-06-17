@@ -2,13 +2,8 @@ import os
 from pathlib import Path
 from django.contrib.messages import constants as messages
 import environ
-import smtplib
-import ssl
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-context = ssl._create_unverified_context()
-server = smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context)
 
 env = environ.Env()
 
@@ -40,12 +35,11 @@ AMERIA_ENDPOINT = 'https://payments.ameriabank.am/'  # Adjust based on their pro
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.gmail.com'  # Change if you're using another provider
+EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_USE_SSL = False  # Ensure this is False
+EMAIL_USE_SSL = False  # keep False since you're using TLS
 EMAIL_HOST_USER = env('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = 'EMAIL_HOST_PASSWORD'
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 DEFAULT_FROM_EMAIL = 'sasszeyn@gmail.com'
 

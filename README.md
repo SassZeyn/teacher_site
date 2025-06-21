@@ -1,8 +1,8 @@
-# Sass Zeyn – English, Literature & TOK Tutor + EdTech Developer 🌟
+# Sass Zeyn – English, Literature & TOK Tutor + EdTech Developer
 
 Welcome to **sasszeyn.com**, the online home of **Sass Zeyn**, a dedicated educator and backend developer passionate about language, literature, and learning-enhancing technology.
 
-## 👩‍🏫 About Me
+## About Me
 - **Sass Zeyn**, TEFL-certified educator with a Master’s in Education specializing in Teaching English as a Foreign Language :contentReference[oaicite:1]{index=1}  
 - Over **7 years** of experience teaching International Baccalaureate (IB) English, Literature, and Theory of Knowledge (TOK) :contentReference[oaicite:2]{index=2}  
 - Skilled in preparing students for **TOEFL** and **IELTS** exams :contentReference[oaicite:3]{index=3}  
@@ -10,7 +10,7 @@ Welcome to **sasszeyn.com**, the online home of **Sass Zeyn**, a dedicated educa
 
 ---
 
-## 📚 Services & Lessons
+## Services & Lessons
 - **IB TOK lessons**, including TOK Exhibition workshops (60 min – $20/session) :contentReference[oaicite:5]{index=5}  
 - **English & Literature tutoring** aligned with IB curriculum standards :contentReference[oaicite:6]{index=6}  
 - **Standardised test prep** for TOEFL and IELTS :contentReference[oaicite:7]{index=7}  
@@ -18,7 +18,7 @@ Welcome to **sasszeyn.com**, the online home of **Sass Zeyn**, a dedicated educa
 
 ---
 
-## 🧩 Tech & Platform
+## Tech & Platform
 - Custom-built teaching platform supporting:
   - **User registration**, lesson bookings, and secure payments :contentReference[oaicite:9]{index=9}  
   - **Backend powered** by Python, Django, MySQL/SQL — emphasizing scalability and performance :contentReference[oaicite:10]{index=10}  
@@ -26,7 +26,7 @@ Welcome to **sasszeyn.com**, the online home of **Sass Zeyn**, a dedicated educa
 
 ---
 
-## 🔗 Site Structure
+## Site Structure
 
 - **Home** – Introduction & credentials  
 - **Available Lessons** – Browse & book sessions  
@@ -37,20 +37,20 @@ Welcome to **sasszeyn.com**, the online home of **Sass Zeyn**, a dedicated educa
 
 ---
 
-## 📬 Contact & Connect
+## Contact & Connect
 
 - **Contact Form** – via site’s “Contact” page :contentReference[oaicite:12]{index=12}  
 - **Email** – sasszeyn@gmail.com (for questions or feedback) :contentReference[oaicite:13]{index=13}  
 
 ---
 
-## 🎯 Mission
+## Mission
 **“Language is Opportunity.”**  
 Empowering students through personalized tutoring and innovative EdTech solutions — unlocking potential in every learner.
 
 ---
 
-## 🚀 Get Started
+## Get Started
 1. Visit **Available Lessons** to explore options.  
 2. Sign up or log in to reserve your preferred session.  
 3. Reach out via **Contact** for custom inquiries or learning goals.  

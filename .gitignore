@@ -1,70 +1,38 @@
-teacher_site/settings.py
+# Ignore main Django database
+db.sqlite3
+
+# Bytecode and cache
+*.pyc
+__pycache__/
+
+# Environment variables
+.env
+.env.*
+
+# Ignore settings overrides (optional, if used)
+settings_local.py
+
+# Virtual environment
+.venv/
+venv/
+
+# IDE & OS files
+.DS_Store
+
+# Logs and backups
+*.log
+db_backup.json
+db_backup.sqlite3
+
+# Static and media files (optional if collected)
+staticfiles/
 media/
-# Django-related files
-*.pyc
-__pycache__/
-db.sqlite3
 
-# Environment variables
-.env
-.env.*
-
-# Virtual environment folder
-venv/
-
-# Other
-*.log
-settings_local.py  # if you create a local settings file (optional)
-
-# System files
-.DS_Store
-
-# Database backups
-db_backup.json
-db_backup.sqlite3
-
-# Node.js dependencies
+# Node.js (if using npm for frontend)
 node_modules/
-
-# Static and media files
-
-# Credentials and sensitive files
-credentials.json
-generate_token.py
-
-# Django-related files
-*.pyc
-__pycache__/
-db.sqlite3
-
-# Environment variables
-.env
-.env.*
-
-# Virtual environment folder
-venv/
-
-# Other
-*.log
-settings_local.py  # if you create a local settings file (optional)
-
-# System files
-.DS_Store
-
-# Database backups
-db_backup.json
-db_backup.sqlite3
-
-# Node.js dependencies
-node_modules/
-
-# Static and media files
-
-# Credentials and sensitive files
-credentials.json
-generate_token.py
-
-# Compiled JavaScript packages
 package-lock.json
 package.json
 
+# Secrets and credentials
+credentials.json
+generate_token.py

@@ -61,7 +61,7 @@ LOGOUT_REDIRECT_URL = 'homepage'  # Redirect to homepage after logout
 LOGIN_REDIRECT_URL = 'homepage'  # Redirect to homepage after login
 
 # Allowed hosts for the application
-ALLOWED_HOSTS = ['sasszeyn.com', 'www.sasszeyn.com', '165.227.170.154']
+ALLOWED_HOSTS = ['sasszeyn.com', 'www.sasszeyn.com', '165.227.170.154', '127.0.0.1', 'localhost']
 
 # Static files configuration (CSS, JS, Images)
 STATIC_URL = '/static/'

@@ -19,6 +19,9 @@ venv/
 # IDE & OS files
 .DS_Store
 
+# PyCharm
+.idea/
+
 # Logs and backups
 *.log
 db_backup.json

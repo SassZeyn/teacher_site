@@ -350,6 +350,7 @@ h2 {
     text-decoration: none; /* Remove underline from links */
     color: inherit; /* Inherit text color for the entire box */
     overflow: hidden;
+    position: relative;
 }
 
 .lesson-category-box:hover {
@@ -368,8 +369,18 @@ h2 {
 .lesson-category-box p {
     font-size: 1.2rem;
     margin-bottom: 20px;
-    color: #555; /* Slightly lighter text for distinction */
+    color: #555;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 6; /* Show ~6 lines max, adjust if needed */
+    -webkit-box-orient: vertical;
 }
+
+
 
 /* Material Category Box */
 .material-category-box {
@@ -400,13 +411,23 @@ h2 {
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: #333; /* Darker text */
+    overflow: hidden;
 }
 
 .material-category-box p {
     font-size: 1.2rem;
     margin-bottom: 20px;
-    color: #777; /* Slightly lighter text for distinction */
+    color: #777;
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 6; /* You can change this number */
+    -webkit-box-orient: vertical;
 }
+
 
 
 /* General Styling for the navbar */

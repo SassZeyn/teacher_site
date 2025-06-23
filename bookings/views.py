@@ -35,6 +35,9 @@ from .models import Article
 from django.http import JsonResponse
 from .models import Booking, Lesson
 from django.http import HttpResponseBadRequest
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+from django.conf import settings
 
 
 
@@ -114,6 +117,8 @@ def create_ameria_payment(request, lesson_id):
 def ameria_payment_return(request):
     # Handle successful payment, e.g., verify payment status and update booking
     return redirect('payment_success')
+
+
 @login_required
 def ameria_payment_cancel(request):
     # Handle canceled payment
@@ -186,10 +191,16 @@ def email_verification_pending(request):
 
 def send_verification_email(user, request):
     """
-    Send a verification email with a unique token to activate the user's account.
+    Send a simple HTML verification email using SendGrid via Django's default EMAIL_BACKEND.
     """
+    from django.utils.http import urlsafe_base64_encode
+    from django.utils.encoding import force_bytes
+    from django.contrib.sites.shortcuts import get_current_site
+    from django.contrib.auth.tokens import default_token_generator as token_generator
+
     current_site = get_current_site(request)
     subject = "Activate Your Account"
+
     html_message = render_to_string('registration/account_activation_email.html', {
         'user': user,
         'domain': current_site.domain,
@@ -197,15 +208,14 @@ def send_verification_email(user, request):
         'token': token_generator.make_token(user),
     })
 
-    email = EmailMultiAlternatives(
-        subject=subject,
-        body='Please use an HTML-compatible email client to view this message.',
-        from_email=settings.DEFAULT_FROM_EMAIL,
-        to=[user.email],
+    send_mail(
+        subject,
+        'Please view this email in an HTML-compatible email client.',
+        settings.DEFAULT_FROM_EMAIL,
+        [user.email],
+        html_message=html_message,
+        fail_silently=False
     )
-
-    email.attach_alternative(html_message, "text/html")
-    email.send()
 
 def activate_account(request, uidb64, token):
     try:

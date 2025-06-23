@@ -39,3 +39,4 @@ package.json
 # Secrets and credentials
 credentials.json
 generate_token.py
+teacher_site/settings.py

@@ -200,7 +200,7 @@ def send_verification_email(user, request):
     email = EmailMultiAlternatives(
         subject=subject,
         body='Please use an HTML-compatible email client to view this message.',
-        from_email='admin@example.com',
+        from_email=settings.DEFAULT_FROM_EMAIL,
         to=[user.email],
     )
 

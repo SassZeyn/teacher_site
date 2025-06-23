@@ -10,7 +10,6 @@ __pycache__/
 .env.*
 
 # Ignore settings overrides (optional, if used)
-settings_local.py
 
 # Virtual environment
 .venv/
@@ -39,4 +38,3 @@ package.json
 # Secrets and credentials
 credentials.json
 generate_token.py
-teacher_site/settings.py
